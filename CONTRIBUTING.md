@@ -6,43 +6,36 @@ editor_options:
 
 # Contributing to Project (Fix title)
 
-This outlines how to propose a change to dplyr. For more detailed info
-about contributing to this, and other tidyverse packages, please see the
-[**development contributing guide**](https://rstd.io/tidy-contrib).
+Thank you for your interest in contributing to our project! Please find
+some guidelines on contributions below. We seek your cooperation in
+adhering to these ground rules, and welcome any feedback on our project.
 
-### Fixing typos
+## Bug Fixes and Feature Requests
 
-Small typos or grammatical errors in documentation may be edited
-directly using the GitHub web interface, so long as the changes are made
-in the *source* file.
+If you notice a bug, or have a feature request, please open up an issue
+[here](https://github.com/UBC-MDS/Group_7_Project/issues)
+(<https://github.com/UBC-MDS/Group_7_Project/issues>).) If you do this,
+do demonstrate the bug with a minimal
+[reprex](https://www.tidyverse.org/help/#reprex), so that we can better
+understand the issue and work towards a solution.
 
--   YES: you edit a roxygen comment in a `.R` file below `R/`.
--   NO: you edit an `.Rd` file below `man/`.
+## Pull Requests
 
-### Prerequisites
+If you'd like to not only identify a bug or request for a feature, but
+would like to contribute a bug fix or a new feature, you can fork our
+repository and submit a pull request. Pull requests will be reviewed
+within 1 week. New code should follow the tidyverse [style
+guide](http://style.tidyverse.org). You can also use the PEP8 [style
+guide](https://peps.python.org/pep-0008/).
 
-Before you make a substantial pull request, you should always file an
-issue and make sure someone from the team agrees that it's a problem. If
-you've found a bug, create an associated issue and illustrate the bug
-with a minimal [reprex](https://www.tidyverse.org/help/#reprex).
+## Code of Conduct
 
-### Pull request process
+Please note that this project includes a [code of
+conduct](CODE_OF_CONDUCT.md), which all contributors must abide by. We will not entertain behaviour which violates these standards.
 
--   We recommend that you create a Git branch for each pull request
-    (PR).\
--   New code should follow the tidyverse [style
-    guide](http://style.tidyverse.org). You can also use the PEP8 [style
-    guide](https://peps.python.org/pep-0008/). Please do not restyle
-    code that has nothing to do with your PR.
+## Attribution
 
-### Code of Conduct
-
-Please note that this project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
-to abide by its terms.
-
-### Attribution
-
-These contributing guidelines were adapted from the dplyr contributing
-guidelines. The guidelines can be found here:
+These contributing guidelines were adapted from the template provided in
+the Milestone 1 document, as well as the dplyr contributing guidelines.
+The guidelines can be found here:
 <https://github.com/tidyverse/dplyr/blob/main/.github/CONTRIBUTING.md>
