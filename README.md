@@ -79,20 +79,13 @@ Our analysis commenced with the retrieval of data from the repository. Following
 
 If you find this code useful, please cite the original paper:
 
-```Latex
-@misc{misc_bank_marketing_222,
-  author       = {Moro,S., Rita,P., and Cortez,P.},
-  title        = {{Bank Marketing}},
-  year         = {2012},
-  howpublished = {UCI Machine Learning Repository},
-  note         = {{DOI}: https://doi.org/10.24432/C5K306}
-}
-@misc{antifraud,
-  author = {daweicheng, xiangsheng1325, bingreeky, Misaka-N}
-  year = {2023},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/finint/antifraud}},
-  commit = {0b91d20a6cbd7722507311d9004076e1c7e41688}
-}
-```
+- Bauer, C. L., &amp; Miglautsch, J. (1992). A conceptual definition of direct marketing. Journal of Direct Marketing, 6(2), 7–17. https://doi.org/10.1002/dir.4000060204 
+- Harris, C.R. et al., 2020. Array programming with NumPy. Nature, 585, pp.357–362.
+- Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Science &amp; Engineering, 9(3), 90–95.
+- McKinney, Wes. 2010. “Data Structures for Statistical Computing in Python.” In Proceedings of the 9th Python in Science Conference, edited by Stéfan van der Walt and Jarrod Millman, 51–56.
+- Moro, S., Cortez, P., &amp; Rita, P. (2014). A data-driven approach to predict the success of bank telemarketing. Decision Support Systems, 62, 22–31. https://doi.org/10.1016/j.dss.2014.03.001 
+- Moro,S., Rita,P., and Cortez,P.. (2012). Bank Marketing. UCI Machine Learning Repository. https://doi.org/10.24432/C5K306. 
+- Nowak, G. J., &amp; Phelps, J. (1995). Direct marketing and the use of individual-level consumer information: Determining how and when “privacy” matters. Journal of Direct Marketing, 9(3), 46–60. https://doi.org/10.1002/dir.4000090307
+- Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011.
+- VanderPlas, J. et al., 2018. Altair: Interactive statistical visualizations for python. Journal of open source software, 3(32), p.1057.
+- Van Rossum, Guido, and Fred L. Drake. 2009. Python 3 Reference Manual. Scotts Valley, CA: CreateSpace.
