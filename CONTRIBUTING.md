@@ -1,10 +1,4 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
-# Contributing to Project (Fix title)
+# Contributing to Bank Marketing Prediction Project
 
 Thank you for your interest in contributing to our project! Please find
 some guidelines on contributions below. We seek your cooperation in
