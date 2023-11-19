@@ -1,52 +1,16 @@
-# Bank Marketing Analysis
+# Bank Marketing Prediction
 
-A Bank Telemarketing Success Detection Framework.
+  - author: Gretel Tan, Yan Zeng, Charles Xu, Riya E. Shaju
 
-## Usage
+A data analysis project for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia.
 
-### Environment Setup
+## About
 
-1. Setup your Python environment: e.g., Miniconda Python 3.11 [[Guide]](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of 0.817, and an accuracy of 0.671 on the test data.
 
-2. Clone the repository:
-```
-$ git clone https://github.com/UBC-MDS/Group_7_Project.git
-```
+While this was the best performing model out of the models tested, its accuracy still left much to be desired. This indicates that perhaps more data is needed to accurately predict whether customers would subscribe to the term deposit. Future studies may also consider using more features, a different set of features which might be more relevant to whether customers will subscribe, or utilising feature engineering to obtain features which might be more useful in helping to predict whether customers would subscribe to the service.
 
-3. Install virtual environment 
-```
-$ conda env create -f environment.yml
-```
-
-4. Activate the virtual environment
-```
-$ conda activate 522_project_env
-```
-
-5. Launch Jupyter Lab to open the `analysis.ipynb`
-```
-$ jupyter lab
-```
-
-### Data Download
-Our data is part of the UC Irvine Machine Learning Repository. It can be downloaded using the `ucimlrepo` library.
-1. Install the library (if you create the virtual environment using the `environment.yml` file, then the library is already installed)
-```
-$ pip install ucimlrepo
-```
-
-2. Import the fetch method from library
-```
-from ucimlrepo import fetch_ucirepo
-```
-
-3. Fetch the data set by ID
-```
-bank_marketing = fetch_ucirepo(id=222)
-```
-
-
-### Data Description
+## Data Description
 
 In this project, we utilized a dataset concerning direct marketing campaigns conducted by a Portuguese banking institution, as provided by Sérgio Moro, P. Rita, and P. Cortez in 2012 (Moro, S., Rita, P., and Cortez, P.). The dataset was sourced from UC Irvine's Machine Learning Repository and can be accessed via the following link: https://archive.ics.uci.edu/dataset/222/bank+marketing. Comprising 16 features and 45,211 instances, each row of the dataset corresponds to information about an individual client of the Portuguese bank. The primary objective of the dataset creators was to predict whether a client would subscribe to a term deposit, a target variable indicated by the 'y' column. In our analysis, we also utilized this column as our target variable.
 
@@ -71,11 +35,82 @@ The columns of this data are defined as below:
 | poutcome | Feature | Categorical | |outcome of the previous marketing campaign (categorical: 'failure','nonexistent','success') | | yes |
 | y | Target | Binary |  | has the client subscribed a term deposit? | | no |
 
-## Result Discussion
+## Usage
 
-Our analysis commenced with the retrieval of data from the repository. Following exploratory data analysis, we opted to exclude the `poutcome` and `contact` features from our dataset due to a considerable number of `NaN` values in these columns, which limited their utility in model training and predictions. Visualizing histograms of the features, categorized by class (subscription status), indicated significant differences in distributions, affirming our decision to include all other features in our model training. Additionally, we observed a notable class imbalance in our target variable. Consequently, we chose not to employ accuracy as the evaluation metric for our model, recognizing its inadequacy in assessing performance. Instead, we opted for the F2 score.
+### Environment Setup
 
-## Citation
+1. Setup your Python environment: e.g., Miniconda Python 3.11 [[Guide]](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+
+2. Clone the repository:
+```
+$ git clone https://github.com/UBC-MDS/Group_7_Project.git
+```
+
+3. Install virtual environment 
+```
+$ conda env create -f environment.yml
+```
+
+4. Launch Jupyter Lab from your base environment
+```
+$ jupyter lab
+```
+
+5. Open the file `analysis.ipynb` and select the `522_project_env` kernel from within Jupyter.
+
+
+### Data Download
+Our data is part of the UC Irvine Machine Learning Repository. It can be downloaded using the `ucimlrepo` library.
+1. Install the library (if you create the virtual environment using the `environment.yml` file, then the library is already installed)
+```
+$ pip install ucimlrepo
+```
+
+2. Import the fetch method from library
+```
+from ucimlrepo import fetch_ucirepo
+```
+
+3. Fetch the data set by ID
+```
+bank_marketing = fetch_ucirepo(id=222)
+```
+
+## Dependencies
+
+  - ipykernel
+  - matplotlib>=3.8.0
+  - pandas>=2.1.1
+  - scikit-learn>=1.3.1
+  - altair=5.1.2
+  - bzip2=1.0.8
+  - ca-certificates=2023.7.22
+  - libexpat=2.5.0
+  - libffi=3.4.2
+  - libsqlite=3.44.0
+  - libzlib=1.2.13
+  - openssl=3.1.4
+  - pip=23.3.1
+  - python=3.12.0
+  - setuptools=68.2.2
+  - tk=8.6.13
+  - tzdata=2023c
+  - wheel=0.41.3
+  - xz=5.2.6
+  - vl-convert-python
+  - vegafusion
+  - vegafusion-python-embed
+  - vegafusion-jupyter
+  - pip:
+      - ucimlrepo==0.0.3
+   
+## License
+
+The Bank Marketing Prediction materials here are licensed under the
+Creative Commons Zero v1.0 Universal (CC0 1.0 Universal). If
+re-using/re-mixing please provide attribution and link to this webpage.
+
+# References
 
 If you find this code useful, please cite the original paper:
 
