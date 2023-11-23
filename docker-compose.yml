@@ -1,7 +1,7 @@
 version: '1'
 services:
   main:
-    image: 522_project:0.0.1
+    image: riyashaju/group_7_project:9f0ad0f
     ports:
       - "8889:8888"
     volumes:
