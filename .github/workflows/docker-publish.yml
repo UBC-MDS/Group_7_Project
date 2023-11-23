@@ -34,7 +34,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: riyaeliza123/Group_7_Project
+          images: riyashaju/Group_7_Project
           tags: |
             type=raw, value={{sha}},enable=${{github.ref_type != 'tag' }}
       
