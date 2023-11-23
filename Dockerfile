@@ -1,4 +1,4 @@
-# Author : Gretel Tan
+# Author : Gretel Tan, Riya Eliza
 FROM quay.io/jupyter/minimal-notebook:2023-11-19 
 
 RUN conda install -y matplotlib>=3.8.0 \
