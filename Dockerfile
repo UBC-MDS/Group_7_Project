@@ -24,4 +24,4 @@ vegafusion \
 vegafusion-python-embed  \
 vegafusion-jupyter  
 
-RUN pip install ucimlrepo==0.0.3
+RUN pip install -y ucimlrepo==0.0.3
