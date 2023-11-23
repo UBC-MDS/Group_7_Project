@@ -1,6 +1,10 @@
 # Author : Gretel Tan, Riya Eliza, Charles Xu
 FROM quay.io/jupyter/minimal-notebook:2023-11-19 
 
+# RUN conda install -y -c conda-forge pandas pip scikit-learn altair altair_saver\
+#     jupyter_contrib_nbextensions jupyter-book matplotlib pyppeteer 
+# RUN pip install docopt-ng vl-convert-python ucimlrepo==0.0.3
+
 RUN conda install -y matplotlib>=3.8.0 \
 pandas>=2.1.1 \
 scikit-learn>=1.3.1 \
@@ -19,9 +23,9 @@ tk=8.6.13 \
 tzdata=2023c \
 wheel=0.41.3 \
 xz=5.2.6 \
-vl-convert-python   \
+vl-convert-python  \
 vegafusion \
 vegafusion-python-embed  \
 vegafusion-jupyter  
 
-RUN pip install -y ucimlrepo==0.0.3
+RUN pip install ucimlrepo==0.0.3
