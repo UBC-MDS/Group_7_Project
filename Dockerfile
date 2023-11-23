@@ -3,7 +3,7 @@ FROM quay.io/jupyter/minimal-notebook:2023-11-19
 
 # Did not pin Python version due to conflict
 RUN conda install -y matplotlib>=3.8.0 \
-pandas>=2.1.1 
+pandas>=2.1.1 \
 scikit-learn=1.3.1 \
 bzip2=1.0.8 \
 ca-certificates=2023.7.22 \
