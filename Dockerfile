@@ -13,6 +13,7 @@ libsqlite=3.44.0 \
 libzlib=1.2.13 \ 
 openssl=3.1.4 \
 pip=23.3.1 \
+pytest=7.4.3 \
 python \
 setuptools=68.2.2 \ 
 tk=8.6.13 \
