@@ -6,6 +6,7 @@ class KNNModel(Model):
         super().__init__()
         self.create_pipeline()
         self.param_grid = { "kneighborsclassifier__n_neighbors": k_range }
+        self.param_name = { "param_kneighborsclassifier__n_neighbors": "k" }
 
     def create_pipeline(self):
         if self.preprocessor:

@@ -9,6 +9,10 @@ class RFModel(Model):
             'randomforestclassifier__max_depth': max_depth,
             'randomforestclassifier__n_estimators': n_estimators,
         }
+        self.param_name = { 
+            'param_randomforestclassifier__max_depth': 'max_depth',
+            'param_randomforestclassifier__n_estimators': 'n_estimators',
+        }
         
     def create_pipeline(self):
         if self.preprocessor:

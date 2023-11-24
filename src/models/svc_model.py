@@ -6,6 +6,7 @@ class SVCModel(Model):
         super().__init__()
         self.create_pipeline()
         self.param_grid = { 'svc__C': C_range }
+        self.param_name = { "param_svc__C": "C" }
 
     def create_pipeline(self):
         if self.preprocessor:
