@@ -7,6 +7,74 @@ import numpy as np
 import altair as alt
 
 class Model():
+    """
+    A template class for a machine learning model with hyperparameter tuning using cross-validation.
+
+    Parameters:
+    - cv: int, optional, default: 5
+        Number of cross-validation folds.
+    - preprocessor: object, optional, default: None
+        Preprocessor for data.
+    
+    Attributes:
+    - pipeline: object
+        The machine learning pipeline.
+    - cv: int
+        Number of cross-validation folds.
+    - preprocessor: object
+        Preprocessor for data.
+    - model: object
+        The trained machine learning model.
+    - param_grid: dict
+        Grid of hyperparameter values for tuning.
+    - cv_results: dict
+        Cross-validation results.
+    - param_name: list
+        Names of hyperparameters.
+
+    Methods:
+    - set_preprocessor(preprocessor):
+        Set the preprocessor for the data and create the pipeline.
+    
+    - search_cv(X_train, y_train):
+        Perform hyperparameter tuning using cross-validation.
+        Returns the best score and parameters.
+    
+    - fit(X_train, y_train, **args):
+        Fit the model to the training data.
+    
+    - predict(X_test):
+        Make predictions on new data.
+    
+    - score(X_test, y_test):
+        Evaluate the model on a test set.
+    
+    - get_cv_results():
+        Get the cross-validation results.
+    
+    - get_accuracy_grid():
+        Get a DataFrame of mean test scores with confidence intervals.
+    
+    - get_best_model_score():
+        Get the best model's score and hyperparameters.
+    
+    - draw_search_plot():
+        Draw an Altair plot showing the hyperparameter search results.
+
+    Example:
+    ```python
+    # Create an instance of the Model class
+    model_instance = Model(cv=10, preprocessor=my_preprocessor)
+
+    # Set the preprocessor and create the pipeline
+    model_instance.set_preprocessor(my_preprocessor)
+
+    # Perform hyperparameter tuning
+    best_score, best_params = model_instance.search_cv(X_train, y_train)
+    ```
+
+    Note: This class assumes the use of Altair for plotting. Make sure to have the necessary dependencies installed.
+    """
     def __init__(self, cv=5, preprocessor=None):
         self.pipeline = None
         self.cv = cv
