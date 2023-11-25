@@ -200,6 +200,9 @@ More details on the exact dependencies contained in our Docker image can
 be found in our [Dockerfile](Dockerfile), located in the root of this
 project directory.
 
+#### Running the tests
+Tests are run using the `pytest` command in the root of the project.
+
 ## License
 
 The Bank Marketing Prediction materials here are licensed under the
