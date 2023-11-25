@@ -46,4 +46,3 @@ class LRModel(Model):
             self.pipeline = make_pipeline(self.preprocessor, LogisticRegression(class_weight={'no': 1, 'yes': 10}))
         else:
             self.pipeline = make_pipeline(LogisticRegression(class_weight={'no': 1, 'yes': 10}))
-    
