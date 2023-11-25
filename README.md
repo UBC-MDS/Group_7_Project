@@ -87,6 +87,8 @@ this client \| \| no \| \| poutcome \| Feature \| Categorical \|
 
 ## Usage
 
+For this set up, you
+
 ### Environment Setup
 
 1.  Setup your Python environment: e.g., Miniconda Python 3.11
@@ -138,31 +140,70 @@ bank_marketing = fetch_ucirepo(id=222)
 
 ## Dependencies
 
--   ipykernel
+Docker, a type of containerization software, was used to contain and run
+the dependencies required for this project. Detailed instructions on how
+to use the Docker image used in this project are found in the [Usage]
+section above. The Docker image used in this project was based on the
+`quay.io/jupyter/minimal-notebook:2023-11-19` image.
+
+The packages contained in the project's Docker image are, in no
+particular order:
+
+**Packages installed using conda:**
+
 -   matplotlib\>=3.8.0
+
 -   pandas\>=2.1.1
--   scikit-learn\>=1.3.1
--   altair=5.1.2
+
+-   scikit-learn=1.3.1
+
 -   bzip2=1.0.8
+
 -   ca-certificates=2023.7.22
+
 -   libexpat=2.5.0
+
 -   libffi=3.4.2
+
 -   libsqlite=3.44.0
+
 -   libzlib=1.2.13
+
 -   openssl=3.1.4
+
 -   pip=23.3.1
--   python=3.12.0
+
+-   pytest=7.4.3
+
+-   python
+
 -   setuptools=68.2.2
+
 -   tk=8.6.13
+
 -   tzdata=2023c
+
 -   wheel=0.41.3
+
 -   xz=5.2.6
+
+**Packages installed using pip:**
+
+-   ucimlrepo==0.0.3
+
+-   altair==5.1.2
+
 -   vl-convert-python
+
 -   vegafusion
--   vegafusion-python-embed
+
 -   vegafusion-jupyter
--   pip:
-    -   ucimlrepo==0.0.3
+
+-   vegafusion-python-embed
+
+More details on the exact dependencies contained in our Docker image can
+be found in our [Dockerfile](Dockerfile), located in the root of this
+project directory.
 
 ## License
 
