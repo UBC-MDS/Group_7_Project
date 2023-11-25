@@ -2,6 +2,41 @@ from src.models.model import *
 from sklearn.ensemble import RandomForestClassifier
 
 class RFModel(Model):
+    """
+    Random Forest Model with hyperparameter tuning.
+
+    Parameters:
+    - n_estimators: int
+        Number of trees in the forest.
+    - max_depth: int or None
+        Maximum depth of the trees in the forest.
+
+    Inherits from the Model class.
+
+    Attributes:
+    - Inherits attributes from the Model class.
+    
+    Methods:
+    - __init__(n_estimators, max_depth):
+        Constructor method. Initializes the RFModel with a specified number of trees and maximum tree depth.
+    
+    - create_pipeline():
+        Creates the machine learning pipeline for Random Forest with optional preprocessor.
+    
+    Example:
+    ```python
+    # Create an instance of the RFModel class with specific n_estimators and max_depth values
+    rf_model_instance = RFModel(n_estimators=100, max_depth=10)
+
+    # Set the preprocessor and create the pipeline
+    rf_model_instance.set_preprocessor(my_preprocessor)
+
+    # Perform hyperparameter tuning
+    best_score, best_params = rf_model_instance.search_cv(X_train, y_train)
+    ```
+
+    Note: This class assumes the use of Altair for plotting. Make sure to have the necessary dependencies installed.
+    """
     def __init__(self, n_estimators, max_depth):
         super().__init__()
         self.create_pipeline()
