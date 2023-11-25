@@ -15,7 +15,7 @@ Columbia.
 ## About
 
 In this project, we aimed to use customer information from a phone-call
-based direct marketing campaign of a Portugese banking institution to
+based direct marketing campaign of a Portuguese banking institution to
 predict whether customers would subscribe to the product offered, a term
 deposit. We applied several classification based models (k-NN, SVM,
 logistic regression and random forest) to our dataset to find the model
@@ -85,58 +85,76 @@ this client \| \| no \| \| poutcome \| Feature \| Categorical \|
 'failure','nonexistent','success') \| \| yes \| \| y \| Target \| Binary
 \| \| has the client subscribed a term deposit? \| \| no \|
 
+## Report
+
+The final report for the project may be viewed at this
+[link](bank_marketing_prediction_report.ipynb).
+
 ## Usage
 
-For this set up, you
+**Note:**
 
-### Environment Setup
+For this set up to run smoothly, you should have Docker installed and
+running on your computer. Download the appropriate Docker software for
+your machine [here](https://www.docker.com/get-started/), then proceed
+with the instructions below.
+
+### Python, Git and Container Setup
 
 1.  Setup your Python environment: e.g., Miniconda Python 3.11
     [[Guide]](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 
-2.  Clone the repository:
+2.  Clone the repository using this command in your terminal:
 
 ```         
 $ git clone https://github.com/UBC-MDS/Group_7_Project.git
 ```
 
-3.  Install virtual environment
+3.  Using the command line, change your directory into the root of this
+    project's directory (using the cd command). Run the following
+    command in that directory:
 
 ```         
-$ conda env create -f environment.yml
+$ docker compose up
 ```
 
-4.  Launch Jupyter Lab from your base environment
+4.  You should see a URL following the pattern
+    [http://127.0.0.1:8888/lab?token=](http://127.0.0.1:8888/lab?token=2d8c085f4e62c9270b1f39834d3fcbd63bc17cfc2a404fcb)
+    appear in the terminal window. For example, it might look like this:
+    <http://127.0.0.1:8888/lab?token=2d8c085f4e62c9270b1f39834d3fcbd63bc17cfc2a404fcb>
+    . Copy this from your terminal and paste the link into your
+    preferred browser. This should open a Jupyter Lab browser containing
+    the dependencies and documents used in our project. The relevant URL
+    is highlighted in the screenshot below, for reference:
+
+![Docker Compose Up Screenshot (Example of
+URL)](docker_compose_url_screenshot.png){width="504"}
+
+### Running the Analysis
+
+1.  To run the analysis and view our report, first navigate to the
+    `work` directory in the left sidebar of Jupyter Lab window, then
+    click on the `bank_marketing_prediction_report.ipynb` file. (The
+    path is `work/bank_marketing_prediction_report.ipynb`).
+
+2.  Click on `Run` in the toolbar on top of the Jupyter Lab browser, and
+    click `Restart Kernel and Run All Cells...` to run the analysis.
+
+### Cleaning Up the Container
+
+1.  When you are done viewing the report and exploring our project, go
+    back to the terminal window which is being used as the server to run
+    the Docker container, and press the `Control + C` keys on your
+    keyboard. This should stop the server and shut down all the kernels,
+    and you should be able to type commands into the terminal again.
+
+2.  Using the command line, type
 
 ```         
-$ jupyter lab
+\$ docker compose down
 ```
 
-5.  Open the file `analysis.ipynb` and select the `522_project_env`
-    kernel from within Jupyter.
-
-### Data Download
-
-Our data is part of the UC Irvine Machine Learning Repository. It can be
-downloaded using the `ucimlrepo` library. 1. Install the library (if you
-create the virtual environment using the `environment.yml` file, then
-the library is already installed)
-
-```         
-$ pip install ucimlrepo
-```
-
-2.  Import the fetch method from library
-
-```         
-from ucimlrepo import fetch_ucirepo
-```
-
-3.  Fetch the data set by ID
-
-```         
-bank_marketing = fetch_ucirepo(id=222)
-```
+This should remove and clean up the container.
 
 ## Dependencies
 
@@ -146,10 +164,10 @@ to use the Docker image used in this project are found in the [Usage]
 section above. The Docker image used in this project was based on the
 `quay.io/jupyter/minimal-notebook:2023-11-19` image.
 
-The packages contained in the project's Docker image are, in no
+The dependencies contained in the project's Docker image are, in no
 particular order:
 
-**Packages installed using conda:**
+**Dependencies installed using conda:**
 
 -   matplotlib\>=3.8.0
 
@@ -187,7 +205,7 @@ particular order:
 
 -   xz=5.2.6
 
-**Packages installed using pip:**
+**Dependencies installed using pip:**
 
 -   ucimlrepo==0.0.3
 
