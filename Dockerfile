@@ -19,7 +19,8 @@ setuptools=68.2.2 \
 tk=8.6.13 \
 tzdata=2023c \
 wheel=0.41.3 \
-xz=5.2.6 
+xz=5.2.6 \
+click
  
 
 RUN pip install ucimlrepo==0.0.3 \
