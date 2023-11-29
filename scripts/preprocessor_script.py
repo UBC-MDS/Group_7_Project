@@ -1,10 +1,12 @@
 import pandas as pd
-import click
-import pickle
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder
 from sklearn.compose import make_column_transformer
 from sklearn import set_config
+import click
+import pickle
+import numpy as np
+import os
 
 
 @click.command
@@ -35,10 +37,10 @@ def main(raw_train_data, raw_test_data, output_preprocessed_data, output_preproc
     bank_marketing_train = bank_marketing_train.dropna()
     bank_marketing_test = bank_marketing_test.dropna()
     # Splitting to X and y test and train
-    X_train = bank_marketing_train.drop(columns=subscribed)
-    y_train = bank_marketing_train[subscribed]
-    X_test = bank_marketing_test.drop(columns=subscribed)
-    y_test = bank_marketing_test[subscribed]
+    X_train = bank_marketing_train.drop(columns='subscribed')
+    y_train = bank_marketing_train['subscribed']
+    X_test = bank_marketing_test.drop(columns='subscribed')
+    y_test = bank_marketing_test['subscribed']
 
     np.random.seed(seed)
     set_config(transform_output="pandas")
@@ -65,6 +67,9 @@ def main(raw_train_data, raw_test_data, output_preprocessed_data, output_preproc
     )
     
     # Pickle unfit preprocessor object
+    # file_path = output_preprocessor
+    # with open(file_path, "wb") as file:
+    #     pickle.dump(preprocessor, file)
     pickle.dump(preprocessor, open(os.path.join(output_preprocessor, "preprocessor.pickle"), "wb"))
 
     # Fit preprocessor
@@ -73,9 +78,18 @@ def main(raw_train_data, raw_test_data, output_preprocessed_data, output_preproc
     preprocessed_X_test = preprocessor.transform(X_test)
 
     # Write raw data "data/processed" directory
-    preprocessed_X_train.to_csv(os.path.join(output_preprocessed_data, "preprocessed_X_train.csv"))
-    preprocessed_X_test.to_csv(os.path.join(output_preprocessed_data, "preprocessed_X_test.csv"))
-
+    file_path_train = output_preprocessed_data + '/preprocessed_X_train_2.csv'
+    print(file_path_train)
+    file_path_test = output_preprocessed_data + '/preprocessed_X_test_2.csv'
+    print(file_path_test)
+    preprocessed_X_train.to_csv(file_path_train)
+    preprocessed_X_test.to_csv(file_path_test)
+    # FIXME: Remove the _2 later
 
 if __name__ == "__main__":
     main()
+
+# scaled_cancer_train.to_csv(os.path.join(data_to, "scaled_cancer_train.csv"), index=False)
+#     scaled_cancer_test.to_csv(os.path.join(data_to, "scaled_cancer_test.csv"), index=False)
+# To run: python scripts/preprocessor_script.py --raw_train_data=raw/bank_marketing_train.csv --raw_test_data=raw/bank_marketing_test.csv --output_preprocessed_data=processed/ --output_preprocessor=processed/ --seed=522
+# python scripts/preprocessor_script.py --raw_train_data=data/raw/bank_marketing_train.csv --raw_test_data=data/raw/bank_marketing_test.csv --output_preprocessed_data=data/processed/ --output_preprocessor=data/processed/ --seed=522
