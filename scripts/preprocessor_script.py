@@ -78,18 +78,14 @@ def main(raw_train_data, raw_test_data, output_preprocessed_data, output_preproc
     preprocessed_X_test = preprocessor.transform(X_test)
 
     # Write raw data "data/processed" directory
-    file_path_train = output_preprocessed_data + '/preprocessed_X_train_2.csv'
+    file_path_train = output_preprocessed_data + '/preprocessed_X_train.csv'
     print(file_path_train)
-    file_path_test = output_preprocessed_data + '/preprocessed_X_test_2.csv'
+    file_path_test = output_preprocessed_data + '/preprocessed_X_test.csv'
     print(file_path_test)
     preprocessed_X_train.to_csv(file_path_train)
     preprocessed_X_test.to_csv(file_path_test)
-    # FIXME: Remove the _2 later
 
 if __name__ == "__main__":
     main()
 
-# scaled_cancer_train.to_csv(os.path.join(data_to, "scaled_cancer_train.csv"), index=False)
-#     scaled_cancer_test.to_csv(os.path.join(data_to, "scaled_cancer_test.csv"), index=False)
-# To run: python scripts/preprocessor_script.py --raw_train_data=raw/bank_marketing_train.csv --raw_test_data=raw/bank_marketing_test.csv --output_preprocessed_data=processed/ --output_preprocessor=processed/ --seed=522
-# python scripts/preprocessor_script.py --raw_train_data=data/raw/bank_marketing_train.csv --raw_test_data=data/raw/bank_marketing_test.csv --output_preprocessed_data=data/processed/ --output_preprocessor=data/processed/ --seed=522
+# To run: python scripts/preprocessor_script.py --raw_train_data=data/raw/bank_marketing_train.csv --raw_test_data=data/raw/bank_marketing_test.csv --output_preprocessed_data=data/processed/ --output_preprocessor=data/processed/ --seed=522
