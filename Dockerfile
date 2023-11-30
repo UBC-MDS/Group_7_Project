@@ -20,7 +20,8 @@ tk=8.6.13 \
 tzdata=2023c \
 wheel=0.41.3 \
 xz=5.2.6 \
-click
+click=8.1.7  \
+jupyter-book=0.15.1
  
 
 RUN pip install ucimlrepo==0.0.3 \
