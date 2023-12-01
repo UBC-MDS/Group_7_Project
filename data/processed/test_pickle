@@ -1,0 +1,3 @@
+import pickle
+preprocessor = pickle.load(open("data/processed/preprocessor.pickle", "rb"))
+print(preprocessor)
