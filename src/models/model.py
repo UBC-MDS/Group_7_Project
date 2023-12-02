@@ -145,3 +145,16 @@ class Model():
         )
         return line_n_point + line_n_point.mark_circle(color='black')
 
+    def draw_search_plot_2(self):
+        accuracies_grid = self.get_accuracy_grid()
+        param0 = list(self.param_name.values())[0]
+        param1 = list(self.param_name.values())[1]
+        line_n_point = alt.Chart(accuracies_grid, width=600).mark_line(color="black").encode(
+            x=alt.X(param1, scale=alt.Scale(type='log'), title=param1),
+            y=alt.Y("mean_test_score")
+                .scale(zero=False) 
+                .title("F-beta score (beta = 5)"),
+            color=alt.Color(f'{param0}:N')
+        )
+        return line_n_point + line_n_point.mark_circle(color='black')
+
