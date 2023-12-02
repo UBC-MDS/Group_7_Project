@@ -12,9 +12,9 @@ from src.models.lr_model import LRModel
 @click.option('--preprocessor_path', type=str, help="PATH of the preprocessor object")
 @click.option('--train_data_path', type=str, help="PATH of train dataset to read")
 @click.option('--model_save_path', type=str, help="Path of the model file to save")
-@click.option('--table_save_path', type=str, help="Path of the table file to save")
-@click.option('--plot_save_path', type=str, help="Path of the plot file to save")
-def main(preprocessor_path, train_data_path, model_save_path, table_save_path, plot_save_path):
+@click.option('--table_dir', type=str, help="Path of the table file to save")
+@click.option('--plot_dir', type=str, help="Path of the plot file to save")
+def main(preprocessor_path, train_data_path, model_save_path, table_dir, plot_dir):
     with open(preprocessor_path, 'rb') as file:
         preprocessor = pickle.load(file)
 
@@ -33,9 +33,9 @@ def main(preprocessor_path, train_data_path, model_save_path, table_save_path, p
     with open(model_save_path, 'wb') as file:
         pickle.dump(model.model, file)
     accuracies_grid = model.get_accuracy_grid()
-    accuracies_grid.to_csv(table_save_path)
+    accuracies_grid.to_csv(os.path.join(table_dir, "lr.csv"))
     plot = model.draw_search_plot()
-    plot.save(plot_save_path)
+    plot.save(os.path.join(plot_dir, "lr.png"))
 
 
 if __name__ == "__main__":
