@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 import pandas as pd
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from src.models.knn_model import KNNModel
+from src.models.svc_model import SVCModel
 
 
 @click.command()
@@ -26,7 +26,7 @@ def main(preprocessor_path, train_data_path, model_save_path, table_save_path, p
     X_train = train_df.drop(columns=["subscribed"])
     y_train = train_df["subscribed"]
 
-    model = KNNModel(np.arange(1, 10, 2))
+    model = SVCModel(10.0 ** np.arange(-3, 3, 1))
     model.set_preprocessor(preprocessor)
     model.search_cv(X_train, y_train)
     model.fit(X_train, y_train)
