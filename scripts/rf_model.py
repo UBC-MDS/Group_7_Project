@@ -34,8 +34,8 @@ def main(preprocessor_path, train_data_path, model_save_path, table_save_path, p
         pickle.dump(model.model, file)
     accuracies_grid = model.get_accuracy_grid()
     accuracies_grid.to_csv(table_save_path)
-    # plot = model.draw_search_plot()
-    # plot.save(plot_save_path)
+    plot = model.draw_search_plot_2()
+    plot.save(plot_save_path)
 
 
 if __name__ == "__main__":
