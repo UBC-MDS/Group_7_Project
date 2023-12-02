@@ -1,0 +1,4 @@
+,2
+param_kneighborsclassifier__n_neighbors,3
+mean_test_score,0.31441717900700505
+mean_train_score,0.542996143003454

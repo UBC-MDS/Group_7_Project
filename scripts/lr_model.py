@@ -32,6 +32,8 @@ def main(preprocessor_path, train_data_path, model_save_path, table_dir, plot_di
     model.fit(X_train, y_train)
     with open(model_save_path, 'wb') as file:
         pickle.dump(model.model, file)
+    best_model_scores_svc = model.get_best_model_score()
+    best_model_scores_svc.to_csv(os.path.join(table_dir, "cv", "lr_cv.csv"))
     accuracies_grid = model.get_accuracy_grid()
     accuracies_grid.to_csv(os.path.join(table_dir, "lr.csv"))
     plot = model.draw_search_plot()
