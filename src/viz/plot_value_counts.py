@@ -22,9 +22,9 @@ def plot_value_counts(data_frame, column) -> None:
 
     counts = data_frame[column].value_counts()
     fig, ax = plt.subplots(figsize=(6, 4))
-    counts.plot(kind='bar', ax=ax)
+    bar = counts.plot(kind='bar', ax=ax)
     ax.set_title('Distribution of ' + column)
     ax.set_xlabel('Target')
     ax.set_ylabel('Count')
     plt.xticks(rotation=45)
-    plt.show()
+    return fig, ax, bar
