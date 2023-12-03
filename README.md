@@ -29,7 +29,7 @@ customers would subscribe to the service.
 ## Report
 
 The final report for the project may be viewed at this
-[link](https://owl64901.github.io/bank_marketing_prediction_report_page/).
+[link](https://ubc-mds.github.io/Group_7_Project/bank_marketing_prediction.html).
 
 ## Data Description
 
