@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Predictive Analytics for Direct Marketing Campaign: A Banking Case Study &#8212; Predictive Analytics for Direct Marketing Campaign: A Banking Case Study</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Predictive Analytics for Direct Marketing Campaign: A Banking Case Study</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    Predictive Analytics for Direct Marketing Campaign: A Banking Case Study
+                </a>
+            </li>
+        </ul>
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/notebooks.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Predictive Analytics for Direct Marketing Campaign: A Banking Case Study</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Predictive Analytics for Direct Marketing Campaign: A Banking Case Study</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-discussion">Results &amp; Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="predictive-analytics-for-direct-marketing-campaign-a-banking-case-study">
+<h1>Predictive Analytics for Direct Marketing Campaign: A Banking Case Study<a class="headerlink" href="#predictive-analytics-for-direct-marketing-campaign-a-banking-case-study" title="Permalink to this heading">#</a></h1>
+<p>by Gretel Tan, Yan Zeng, Charles Xu &amp; Riya E. Shaju 2023/11/25</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.816</span>, and an accuracy of <span class="pasted-text">0.638</span> on the test data.</p>
+<p>While this was the best performing model out of the models tested, its accuracy still left much to be desired. This indicates that perhaps more data is needed to accurately predict whether customers would subscribe to the term deposit. Future studies may also consider using more features, a different set of features which might be more relevant to whether customers will subscribe, or utilising feature engineering to obtain features which might be more useful in helping to predict whether customers would subscribe to the service.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<p>Direct marketing generally refers to the relational marketing process involving getting information on individual consumers, getting feedback on their responses to various measures like sales campaigns, and influencing their behaviours <span id="id1">[<a class="reference internal" href="markdown.html#id3" title="C. L. Bauer and J. Miglautsch. A conceptual definition of direct marketing. Journal of Direct Marketing, 6(2):7–17, 1992. doi:10.1002/dir.4000060204.">Bauer and Miglautsch, 1992</a>]</span>. Many companies utilise direct marketing strategies to target individual groups of customers, reaching out specifically to groups of customers who will allow companies to meet their sales or business objectives <span id="id2">[<a class="reference internal" href="markdown.html#id4" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. https://doi.org/10.24432/C5K306, 2012.">Moro <em>et al.</em>, 2012</a>]</span>, such as targeting advertising for a particular product to a specific group of customers who will be most likely to purchase that product. With the advent of rapidly advancing computer and database technologies, as well as the growing field of data science, companies and direct marketers now have unprecedented access to individual-level consumer information, which can be used to develop detailed customer profiles. These profiles are valuable to companies, providing them with great insight to guide the formulation of direct marketing campaigns, among other business strategies <span id="id3">[<a class="reference internal" href="markdown.html#id5" title="G. J. Nowak and J. Phelps. Direct marketing and the use of individual-level consumer information: determining how and when “privacy” matters. Journal of Direct Marketing, 9(3):46–60, 1995. doi:10.1002/dir.4000090307.">Nowak and Phelps, 1995</a>]</span>. As such, companies are keen to utilise technology to revolutionise marketing, using the information and metrics available to them to maximise the value they can get from each consumer over their lifetimes <span id="id4">[<a class="reference internal" href="markdown.html#id4" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. https://doi.org/10.24432/C5K306, 2012.">Moro <em>et al.</em>, 2012</a>]</span>.</p>
+<p>Our project aims to predict whether individual customers will subscribe to a service provided by a company, based on demographic information collected about each customer. Should the model be good enough to predict whether customers are likely to subscribe to the service accurately, the company, a Portugese banking institution, would be able to target ads and marketing phone calls only at the new customers who are most likely to subscribe to this service, or similar services. This would result in huge savings in terms of company resources, freeing up campaign funds and human resources, which might have otherwise been wasted on calling reluctant customers, to be redirected to other services which might benefit the company more. It might also reduce annoyance in customers, as, ideally customers will only receive calls if they are likely to be interested in a product, and would not have to entertain calls or ads about products which they do not care about. This presents a win-win situation for both consumers and the company.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h1>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<p>In this project, a dataset about direct marketing campaigns of a Portugese banking institution, from Sérgio Moro, P. Rita, and P. Cortez was used <span id="id5">[<a class="reference internal" href="markdown.html#id4" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. https://doi.org/10.24432/C5K306, 2012.">Moro <em>et al.</em>, 2012</a>]</span>. The data was downloaded from UC Irvine’s Machine Learning Repository, and the link can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>. The dataset has 16 features and 45211 instances, with each row representing information about a single client of the Portugese bank. The aim of the authors in creating the data set was to predict whether the client will subscribe a term deposit, which is captured by the ‘subscribed’ column. We have also used this column as our target in our analysis.</p>
+</section>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h2>
+<p>As our project is interested answering a classification problem, we decided to test different classification models to predict whether customers would subscribe to the term deposit. The models we chose to use are: the k-nearest neighbours (kNN), support vector machine (SVM), logistic regression, and random forest. We chose these models as they offer different benefits, and we were interested in finding out which model would work best for our data. We chose to include logistic regression as it offers both interpretability and potential to perform well in classification problems, while we chose the other models despite their lower interpretability as, in our case, it is not so critical that we understand why or how the model comes to its predictions as long as the model performs well. All variables from the original dataset except poutcome and contact were used to fit our models. 10% of the data was partitioned into the training set, and 90% of the data was partitioned into the test set, used for evaluating how well our best model would perform on unseen data. We used 5-fold cross-validation with the F-beta score (beta = 5) as the classification metric. Beta was chosen as 5 for the F-beta score as we would like to focus on making accurate predictions for the customers who might be interested in subscribing to the term deposit, corresponding to a higher recall. This is as because we would rather have false positives and annoy some customers who might not be interested in subscribing to our service, than miss out on customers who might want to subscribe to the service (false negatives), which would cause the bank to lose a potential opportunity. Furthermore, customers who fit this profile are more likely to subscribe to similar services, and if they are accurately identified, the bank will be able to target them more specifically in future campaigns. Numeric variables were standardised immediately before model testing and fitting, while categorical variables were encoded via one-hot encoding. The Python programming language <span id="id6">[<a class="reference internal" href="markdown.html#id7" title="Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.">Van Rossum and Drake, 2009</a>]</span> was used to perform the analysis, with the following Python packages being used as well: <span id="id7">[<a class="reference internal" href="markdown.html#id15" title="Charles R Harris, K Jarrod Millman, Stéfan J van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E Oliphant. Array programming with NumPy. Nature, 585(7825):357–362, 2020. URL: https://doi.org/10.1038/s41586-020-2649-2, doi:10.1038/s41586-020-2649-2.">Harris <em>et al.</em>, 2020</a>]</span>, <span id="id8">[<a class="reference internal" href="markdown.html#id8" title="Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, =51 - 56. 2010.">McKinney, 2010</a>]</span>, <span id="id9">[<a class="reference internal" href="markdown.html#id16" title="Jake VanderPlas. Altair: interactive statistical visualizations for python. Journal of open source software, 3(7825):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.">VanderPlas, 2018</a>]</span>, <span id="id10">[<a class="reference internal" href="markdown.html#id17" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>, <span id="id11">[<a class="reference internal" href="markdown.html#id6" title="J. D. Hunter. Matplotlib: a 2d graphics environment. Computing in Science &amp; Engineering, 9(3):90–95, 2007.">Hunter, 2007</a>]</span>. The code used to perform the analysis and create this report can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/Group_7_Project">UBC-MDS/Group_7_Project</a>.</p>
+<p>Note: Because Docker containers have resource limits for CPU, memory, and I/O. In order to speed up the running of complex models (such as SVM, Random Forest), we decided to reduce the proportion of the training set to 10%. This is acceptable because our dataset is large enough that a 10% split still has 4500+ entries. Ideally, the code should execute within five minutes, depending on your computer configuration.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="results-discussion">
+<h1>Results &amp; Discussion<a class="headerlink" href="#results-discussion" title="Permalink to this heading">#</a></h1>
+<p>We started our analysis by reading in the data from the repository. After doing exploratory data analysis of our data, we decided to drop the ‘poutcome’ and ‘contact’ features from our data, as there were many NaN values in the two feature columns for them, limiting the usefulness of these features in our model training and predictions. Plotting histograms of the features, coloured by class (whether the customer subscribed or not) revealed that the features were sufficiently differently distributed for us to be confident that we should include all other features in training our models. We also identified that there was great class imbalance in our target. As such, we decided not to use accuracy as the metric used to evaluate our model, as it would not give us a good idea of whether the model is performing well or not, preferring to use the F-beta score (beta = 5) instead.</p>
+<p>TODO</p>
+<p>We did hyperparameter optimisation for the following classification models: k-nearest neighbouts classifier (<a class="reference internal" href="#knn"><span class="std std-numref">Figure 1</span></a>), support vector machine (<a class="reference internal" href="#svc"><span class="std std-numref">Figure 2</span></a>), logistic regression (<a class="reference internal" href="#lr"><span class="std std-numref">Figure 3</span></a>), and random forest model (<a class="reference internal" href="#rf"><span class="std std-numref">Figure 4</span></a>). To find the best model, we performed 5-fold cross validation within GridSearch using F-beta score (beta = 5) as our metric of model prediction performance.</p>
+<figure class="align-default" id="knn">
+<a class="reference internal image-reference" href="_images/knn.png"><img alt="_images/knn.png" src="_images/knn.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Results from 5-fold cross validation of k-NN model to choose K. F-beta score (with beta = 5) was used as the classification metric as K was varied.</span><a class="headerlink" href="#knn" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="svc">
+<a class="reference internal image-reference" href="_images/svc.png"><img alt="_images/svc.png" src="_images/svc.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Results from 5-fold cross validation of SVM model to choose C. F-beta score (with beta = 5) was used as the classification metric as C was varied.</span><a class="headerlink" href="#svc" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="lr">
+<a class="reference internal image-reference" href="_images/lr.png"><img alt="_images/lr.png" src="_images/lr.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Results from 5-fold cross validation of logistic regression model to choose C. F-beta score (with beta = 5) was used as the classification metric as C was varied.</span><a class="headerlink" href="#lr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="rf">
+<a class="reference internal image-reference" href="_images/rf.png"><img alt="_images/rf.png" src="_images/rf.png" style="width: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Results from 5-fold cross validation of random forest model to choose max_features and max_depth. F-beta score (with beta = 5) was used as the classification metric as max_features and max_depth were varied.</span><a class="headerlink" href="#rf" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.828</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
+<figure class="align-default" id="model-comparison-df">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_2210a">
+  <thead>
+    <tr>
+      <th id="T_2210a_level0_col0" class="col_heading level0 col0" >model_name</th>
+      <th id="T_2210a_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
+      <th id="T_2210a_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_2210a_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
+      <td id="T_2210a_row0_col1" class="data row0 col1" >0.475000</td>
+      <td id="T_2210a_row0_col2" class="data row0 col2" >0.243000</td>
+    </tr>
+    <tr>
+      <td id="T_2210a_row1_col0" class="data row1 col0" >SVC RBF</td>
+      <td id="T_2210a_row1_col1" class="data row1 col1" >0.826000</td>
+      <td id="T_2210a_row1_col2" class="data row1 col2" >0.779000</td>
+    </tr>
+    <tr>
+      <td id="T_2210a_row2_col0" class="data row2 col0" >Logistic Regression</td>
+      <td id="T_2210a_row2_col1" class="data row2 col1" >0.781000</td>
+      <td id="T_2210a_row2_col2" class="data row2 col2" >0.774000</td>
+    </tr>
+    <tr>
+      <td id="T_2210a_row3_col0" class="data row3 col0" >Random Forest</td>
+      <td id="T_2210a_row3_col1" class="data row3 col1" >0.839000</td>
+      <td id="T_2210a_row3_col2" class="data row3 col2" >0.828000</td>
+    </tr>
+  </tbody>
+</table>
+</div><figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Performance comparison across all models.</span><a class="headerlink" href="#model-comparison-df" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.816</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.828</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">13673</span> false positives and <span class="pasted-text">4104</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
+<figure class="align-default" id="test-scores-df">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_6a037">
+  <thead>
+    <tr>
+      <th id="T_6a037_level0_col0" class="col_heading level0 col0" >accuracy</th>
+      <th id="T_6a037_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_6a037_row0_col0" class="data row0 col0" >0.638000</td>
+      <td id="T_6a037_row0_col1" class="data row0 col1" >0.816000</td>
+    </tr>
+  </tbody>
+</table>
+</div><figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Accuracy and F-beta score of model performance on test data.</span><a class="headerlink" href="#test-scores-df" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="confusion-df">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Predicted: no</th>
+      <th>yes</th>
+    </tr>
+    <tr>
+      <th>Actual label:</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>no</th>
+      <td>20682</td>
+      <td>13673</td>
+    </tr>
+    <tr>
+      <th>yes</th>
+      <td>415</td>
+      <td>4104</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Confusion matrix of model performance on test data.</span><a class="headerlink" href="#confusion-df" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As the F-beta score (beta = 5) score of the model is quite high and the model does not seem to be overfit to the training data, it is probably safe to apply this model to new customers, and to predict whether they will be interested in subscribing to the term deposit. This means that the bank can target ads and direct marketing calls about this term deposit, and potentially, other related products, to this specific group of customers, and can expect that the success rate would be quite high compared to a random group of customers.</p>
+<p>While the high number of false positives is acceptable given the low-stakes nature of having false positives, it would still be beneficial to the bank to improve the performance of our model, and to reduce the number of false positives. In the future, the model may be refined by including more data points, which might help to train the model better. More relevant features may also be included to train the model better, and feature engineering may be carried out to further refine the model.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
+<div class="highlight-{bibliography notranslate"><div class="highlight"><pre><span></span>filter: docname in docnames
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Predictive Analytics for Direct Marketing Campaign: A Banking Case Study</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-discussion">Results &amp; Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gretel Tan, Yan Zeng, Charles Xu & Riya E. Shaju
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
