@@ -109,13 +109,75 @@ URL)](docker_compose_url_screenshot.png){width="504"}
 
 ### Running the Analysis
 
-1.  To run the analysis and view our report, first navigate to the
-    `work` directory in the left sidebar of Jupyter Lab window, then
-    click on the `bank_marketing_prediction_report.ipynb` file. (The
-    path is `work/bank_marketing_prediction_report.ipynb`).
+To run the analysis, enter the following commands in the terminal in the project root:
 
-2.  Click on `Run` in the toolbar on top of the Jupyter Lab browser, and
-    click `Restart Kernel and Run All Cells...` to run the analysis.
+```
+# download and extract data
+python scripts/import_data_split.py \
+   --data_id=222 \
+   --ratio=0.10
+
+# perform eda and save plots
+python scripts/eda.py \
+   --train_path=data/processed/bank_marketing_train.csv \
+   --plot_path=results/plots \
+   --table_path=results/tables
+
+# split data into train and test sets, preprocess data for eda 
+# and save preprocessor
+python scripts/preprocessor_script.py \
+   --raw_train_data=data/raw/bank_marketing_train.csv
+   --raw_test_data=data/raw/bank_marketing_test.csv \
+   --output_preprocessed_data=data/processed/ \
+   --output_preprocessor=data/processed/ \
+   --seed=522
+
+# train KNN model, create visualize tuning, and save plot and model
+python scripts/knn_model.py \
+   --preprocessor_path=results/models/preprocessor.pickle \
+   --train_data_path=data/raw/bank_marketing_train.csv \
+   --model_save_path=results/models/knn.pickle \
+   --table_dir=results/tables \
+   --plot_dir=results/plots
+
+# train SVC model, create visualize tuning, and save plot and model
+python scripts/svc_model.py \
+   --preprocessor_path=results/models/preprocessor.pickle \
+   --train_data_path=data/raw/bank_marketing_train.csv \
+   --model_save_path=results/models/svc.pickle \
+   --table_dir=results/tables \
+   --plot_dir=results/plots
+
+# train logistic regression model, create visualize tuning, and save plot and model
+python scripts/lr_model.py \
+   --preprocessor_path=results/models/preprocessor.pickle \
+   --train_data_path=data/raw/bank_marketing_train.csv \
+   --model_save_path=results/models/lr.pickle \
+   --table_dir=results/tables \
+   --plot_dir=results/plots
+
+# train ramdom forest regression model, create visualize tuning, and save plot and model
+python scripts/rf_model.py \
+   --preprocessor_path=results/models/preprocessor.pickle \
+   --train_data_path=data/raw/bank_marketing_train.csv \
+   --model_save_path=results/models/rf.pickle \
+   --table_dir=results/tables \
+   --plot_dir=results/plots
+
+# perform model comparison and save results
+python scripts/model_compare.py \
+   --result_folder_path=results/tables
+
+# evaluate model on test data and save results
+python scripts/best_model_evaluation.py \
+   --model_path=results/models/rf.pickle \
+   --test_data_path=data/processed/bank_marketing_test.csv \
+   --target_dir=results/tables
+
+# build HTML report and copy build to docs folder
+jupyter-book build report
+cp -r report/_build/html/* docs
+```
 
 ### Cleaning Up the Container
 
