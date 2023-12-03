@@ -111,8 +111,6 @@ URL)](docker_compose_url_screenshot.png)
 
 To run the analysis, enter the following commands in the terminal in the project root:
 
-Make sure you are using the project environment instead of base.
-
 ```
 # download and extract data
 python scripts/import_data_split.py \
