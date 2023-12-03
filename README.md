@@ -177,6 +177,7 @@ python scripts/best_model_evaluation.py \
 jupyter-book build report
 cp -r report/_build/html/* docs
 ```
+The final rendered report html file should be located at `/docs/bank_marketing_prediction.html`.
 
 ### Cleaning Up the Container
 
