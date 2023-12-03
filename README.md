@@ -105,7 +105,7 @@ $ docker compose up
     is highlighted in the screenshot below, for reference:
 
 ![Docker Compose Up Screenshot (Example of
-URL)](docker_compose_url_screenshot.png){width="504"}
+URL)](docker_compose_url_screenshot.png)
 
 ### Running the Analysis
 
@@ -125,8 +125,7 @@ python scripts/eda.py \
    --plot_path=results/plots \
    --table_path=results/tables
 
-# split data into train and test sets, preprocess data for eda 
-# and save preprocessor
+# preprocess data and save preprocessor
 python scripts/preprocessor_script.py \
    --raw_train_data=data/raw/bank_marketing_train.csv \
    --raw_test_data=data/raw/bank_marketing_test.csv \
