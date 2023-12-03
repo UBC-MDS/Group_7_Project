@@ -111,6 +111,8 @@ URL)](docker_compose_url_screenshot.png){width="504"}
 
 To run the analysis, enter the following commands in the terminal in the project root:
 
+Make sure you are using the project environment instead of base.
+
 ```
 # download and extract data
 python scripts/import_data_split.py \
@@ -126,7 +128,7 @@ python scripts/eda.py \
 # split data into train and test sets, preprocess data for eda 
 # and save preprocessor
 python scripts/preprocessor_script.py \
-   --raw_train_data=data/raw/bank_marketing_train.csv
+   --raw_train_data=data/raw/bank_marketing_train.csv \
    --raw_test_data=data/raw/bank_marketing_test.csv \
    --output_preprocessed_data=data/processed/ \
    --output_preprocessor=data/processed/ \
