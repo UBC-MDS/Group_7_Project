@@ -343,7 +343,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
-<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.825</span>, and an accuracy of <span class="pasted-text">0.672</span> on the test data.</p>
+<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.82</span>, and an accuracy of <span class="pasted-text">0.677</span> on the test data.</p>
 <p>While this was the best performing model out of the models tested, its accuracy still left much to be desired. This indicates that perhaps more data is needed to accurately predict whether customers would subscribe to the term deposit. Future studies may also consider using more features, a different set of features which might be more relevant to whether customers will subscribe, or utilising feature engineering to obtain features which might be more useful in helping to predict whether customers would subscribe to the service.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
@@ -403,38 +403,38 @@ document.write(`
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Results from 5-fold cross validation of random forest model to choose max_features and max_depth. F-beta score (with beta = 5) was used as the classification metric as max_features and max_depth were varied.</span><a class="headerlink" href="#rf" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.828</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
+<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.826</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
 <figure class="align-default" id="model-comparison-df">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_b69f4">
+<table id="T_44742">
   <thead>
     <tr>
-      <th id="T_b69f4_level0_col0" class="col_heading level0 col0" >model_name</th>
-      <th id="T_b69f4_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
-      <th id="T_b69f4_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
+      <th id="T_44742_level0_col0" class="col_heading level0 col0" >model_name</th>
+      <th id="T_44742_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
+      <th id="T_44742_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_b69f4_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
-      <td id="T_b69f4_row0_col1" class="data row0 col1" >0.543000</td>
-      <td id="T_b69f4_row0_col2" class="data row0 col2" >0.314000</td>
+      <td id="T_44742_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
+      <td id="T_44742_row0_col1" class="data row0 col1" >0.418000</td>
+      <td id="T_44742_row0_col2" class="data row0 col2" >0.289000</td>
     </tr>
     <tr>
-      <td id="T_b69f4_row1_col0" class="data row1 col0" >SVC RBF</td>
-      <td id="T_b69f4_row1_col1" class="data row1 col1" >0.810000</td>
-      <td id="T_b69f4_row1_col2" class="data row1 col2" >0.806000</td>
+      <td id="T_44742_row1_col0" class="data row1 col0" >SVC RBF</td>
+      <td id="T_44742_row1_col1" class="data row1 col1" >0.813000</td>
+      <td id="T_44742_row1_col2" class="data row1 col2" >0.796000</td>
     </tr>
     <tr>
-      <td id="T_b69f4_row2_col0" class="data row2 col0" >Logistic Regression</td>
-      <td id="T_b69f4_row2_col1" class="data row2 col1" >0.782000</td>
-      <td id="T_b69f4_row2_col2" class="data row2 col2" >0.781000</td>
+      <td id="T_44742_row2_col0" class="data row2 col0" >Logistic Regression</td>
+      <td id="T_44742_row2_col1" class="data row2 col1" >0.804000</td>
+      <td id="T_44742_row2_col2" class="data row2 col2" >0.793000</td>
     </tr>
     <tr>
-      <td id="T_b69f4_row3_col0" class="data row3 col0" >Random Forest</td>
-      <td id="T_b69f4_row3_col1" class="data row3 col1" >0.832000</td>
-      <td id="T_b69f4_row3_col2" class="data row3 col2" >0.828000</td>
+      <td id="T_44742_row3_col0" class="data row3 col0" >Random Forest</td>
+      <td id="T_44742_row3_col1" class="data row3 col1" >0.852000</td>
+      <td id="T_44742_row3_col2" class="data row3 col2" >0.826000</td>
     </tr>
   </tbody>
 </table>
@@ -442,21 +442,21 @@ document.write(`
 <p><span class="caption-number">Fig. 7 </span><span class="caption-text">Performance comparison across all models.</span><a class="headerlink" href="#model-comparison-df" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.825</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.828</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">12356</span> false positives and <span class="pasted-text">4109</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
+<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.82</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.826</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">12129</span> false positives and <span class="pasted-text">4073</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
 <figure class="align-default" id="test-scores-df">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_9e692">
+<table id="T_1dc0c">
   <thead>
     <tr>
-      <th id="T_9e692_level0_col0" class="col_heading level0 col0" >accuracy</th>
-      <th id="T_9e692_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
+      <th id="T_1dc0c_level0_col0" class="col_heading level0 col0" >accuracy</th>
+      <th id="T_1dc0c_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_9e692_row0_col0" class="data row0 col0" >0.672000</td>
-      <td id="T_9e692_row0_col1" class="data row0 col1" >0.825000</td>
+      <td id="T_1dc0c_row0_col0" class="data row0 col0" >0.677000</td>
+      <td id="T_1dc0c_row0_col1" class="data row0 col1" >0.820000</td>
     </tr>
   </tbody>
 </table>
@@ -495,13 +495,13 @@ document.write(`
   <tbody>
     <tr>
       <th>no</th>
-      <td>21999</td>
-      <td>12356</td>
+      <td>22226</td>
+      <td>12129</td>
     </tr>
     <tr>
       <th>yes</th>
-      <td>410</td>
-      <td>4109</td>
+      <td>446</td>
+      <td>4073</td>
     </tr>
   </tbody>
 </table>
