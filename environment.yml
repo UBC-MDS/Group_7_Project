@@ -30,6 +30,7 @@ dependencies:
   - vegafusion-jupyter  # For working with charts > 100,000 graphical objects
   - click=8.1.7
   - jupyter-book=0.15.1
+  - importlib-metadata=4.13.0
 
   - pip:
       - ucimlrepo==0.0.3
