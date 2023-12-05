@@ -105,7 +105,7 @@ $ docker compose up
     is highlighted in the screenshot below, for reference:
 
 ![Docker Compose Up Screenshot (Example of
-URL)](docker_compose_url_screenshot.png)
+URL)](docs/docker_compose_url_screenshot.png)
 
 ### Running the Analysis
 
