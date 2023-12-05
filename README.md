@@ -268,8 +268,8 @@ Tests are run using the `pytest` command in the root of the project.
 ## License
 
 The Bank Marketing Prediction materials here are licensed under the
-Creative Commons Zero v1.0 Universal (CC0 1.0 Universal). If
-re-using/re-mixing please provide attribution and link to this webpage.
+Creative Commons Zero v1.0 Universal (CC0 1.0 Universal). The code is licensed 
+under MIT License. If re-using/re-mixing please provide attribution and link to this webpage.
 
 # References
 
