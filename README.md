@@ -84,7 +84,7 @@ with the instructions below.
 2.  Clone the repository using this command in your terminal:
 
 ```         
-$ git clone https://github.com/UBC-MDS/Group_7_Project.git
+git clone https://github.com/UBC-MDS/Group_7_Project.git
 ```
 
 3.  Using the command line, change your directory into the root of this
@@ -92,7 +92,7 @@ $ git clone https://github.com/UBC-MDS/Group_7_Project.git
     command in that directory:
 
 ```         
-$ docker compose up
+docker compose up
 ```
 
 4.  You should see a URL following the pattern
@@ -105,7 +105,7 @@ $ docker compose up
     is highlighted in the screenshot below, for reference:
 
 ![Docker Compose Up Screenshot (Example of
-URL)](docker_compose_url_screenshot.png)
+URL)](docs/docker_compose_url_screenshot.png)
 
 ### Running the Analysis
 
@@ -190,7 +190,7 @@ Our final rendered report html file should be located at `/docs/bank_marketing_p
 2.  Using the command line, type
 
 ```         
-\$ docker compose down
+docker compose down
 ```
 
 This should remove and clean up the container.
