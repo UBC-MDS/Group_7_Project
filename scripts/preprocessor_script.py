@@ -11,8 +11,6 @@ import os
 @click.command
 @click.option('--raw_train_data', type=str, help="Path for accessing raw train data")
 @click.option('--raw_test_data', type=str, help="Path for accessing raw test data")
-# @click.option('--output_dropped_train', type=str, help="Path for writing file containing train data with dropped features")
-# @click.option('--output_dropped_test', type=str, help="Path for writing file containing test data with dropped features")
 @click.option('--output_preprocessed_data', type=str, help="Path for writing files containing preprocessed data")
 @click.option('--output_preprocessor', type=str, help="Path for writing the file containing the preprocessor object")
 @click.option('--seed', type=int, help="Random seed", default=522)
@@ -75,10 +73,7 @@ def main(raw_train_data, raw_test_data, output_preprocessed_data, output_preproc
         ("drop", drop_features),
     )
 
-    # Pickle unfit preprocessor object
-    # file_path = output_preprocessor
-    # with open(file_path, "wb") as file:
-    #     pickle.dump(preprocessor, file)
+    # Pickle preprocessor object (unfit)
     pickle.dump(
         preprocessor,
         open(os.path.join(output_preprocessor, "preprocessor.pickle"), "wb")
