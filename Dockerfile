@@ -22,7 +22,8 @@ wheel=0.41.3 \
 xz=5.2.6 \
 click=8.1.7  \
 jupyter-book=0.15.1 \
-importlib-metadata=4.13.0
+importlib-metadata=4.13.0\
+make
  
 
 RUN pip install ucimlrepo==0.0.3 \
