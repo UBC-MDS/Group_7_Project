@@ -312,10 +312,24 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-and-data-selection">Feature and Data Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-selection">Metric Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-discussion">Results &amp; Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-training-set">Small Training Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-and-feature-engineering">Model Accuracy and Feature Engineering</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
 
@@ -331,7 +345,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predictive-analytics-for-direct-marketing-campaign-a-banking-case-study">
 <h1>Predictive Analytics for Direct Marketing Campaign: A Banking Case Study<a class="headerlink" href="#predictive-analytics-for-direct-marketing-campaign-a-banking-case-study" title="Permalink to this heading">#</a></h1>
-<p>by Gretel Tan, Yan Zeng, Charles Xu &amp; Riya E. Shaju 2023/11/25</p>
+<p>by Gretel Tan, Yan Zeng, Charles Xu &amp; Riya E. Shaju 2023/12/05</p>
 <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -343,7 +357,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
-<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.82</span>, and an accuracy of <span class="pasted-text">0.677</span> on the test data.</p>
+<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.807</span>, and an accuracy of <span class="pasted-text">0.678</span> on the test data.</p>
 <p>While this was the best performing model out of the models tested, its accuracy still left much to be desired. This indicates that perhaps more data is needed to accurately predict whether customers would subscribe to the term deposit. Future studies may also consider using more features, a different set of features which might be more relevant to whether customers will subscribe, or utilising feature engineering to obtain features which might be more useful in helping to predict whether customers would subscribe to the service.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
@@ -356,11 +370,179 @@ document.write(`
 <section id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
 <p>In this project, a dataset about direct marketing campaigns of a Portugese banking institution, from Sérgio Moro, P. Rita, and P. Cortez was used <span id="id5">[<a class="reference internal" href="#id14" title="S. Moro, P. Rita, and P. Cortez. Bank marketing. https://doi.org/10.24432/C5K306, 2012.">Moro <em>et al.</em>, 2012</a>]</span>. The data was downloaded from UC Irvine’s Machine Learning Repository, and the link can be found <a class="reference external" href="https://archive.ics.uci.edu/dataset/222/bank+marketing">here</a>. The dataset has 16 features and 45211 instances, with each row representing information about a single client of the Portugese bank. The aim of the authors in creating the data set was to predict whether the client will subscribe a term deposit, which is captured by the ‘subscribed’ column. We have also used this column as our target in our analysis.</p>
+<p>The columns in our dataset are as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Variable Name</p></th>
+<th class="text-center head"><p>Role</p></th>
+<th class="text-center head"><p>Type</p></th>
+<th class="text-center head"><p>Demographic</p></th>
+<th class="text-center head"><p>Description</p></th>
+<th class="text-center head"><p>Units</p></th>
+<th class="text-center head"><p>Missing Values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>age</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Integer</p></td>
+<td class="text-center"><p>Age</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>job</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Categorical</p></td>
+<td class="text-center"><p>Occupation</p></td>
+<td class="text-center"><p>type of job (categorical: ‘admin.’,’blue-collar’,’entrepreneur’,’housemaid’,’management’,’retired’,’self-employed’,’services’,’student’,’technician’,’unemployed’,’unknown’)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>marital</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Categorical</p></td>
+<td class="text-center"><p>Marital Status</p></td>
+<td class="text-center"><p>marital status (categorical: ‘divorced’,’married’,’single’,’unknown’; note: ‘divorced’ means divorced or widowed)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>education</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Categorical</p></td>
+<td class="text-center"><p>Education Level</p></td>
+<td class="text-center"><p>(categorical: ‘basic.4y’,’basic.6y’,’basic.9y’,’high.school’,’illiterate’,’professional.course’,’university.degree’,’unknown’)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>default</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Binary</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>has credit in default?</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>balance</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Integer</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>average yearly balance</p></td>
+<td class="text-center"><p>euros</p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>housing</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Binary</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>has housing loan?</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>loan</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Binary</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>has personal loan?</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>contact</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Categorical</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>contact communication type (categorical: ‘cellular’,’telephone’)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>yes</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>day_of_week</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Date</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>last contact day of the week</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>month</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Date</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>last contact month of year (categorical: ‘jan’, ‘feb’, ‘mar’, …, ‘nov’, ‘dec’)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>duration</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Integer</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>last contact duration, in seconds (numeric). Important note: this attribute highly affects the output target (e.g., if duration=0 then y=’no’). Yet, the duration is not known before a call is performed. Also, after the end of the call y is obviously known. Thus, this input should only be included for benchmark purposes and should be discarded if the intention is to have a realistic predictive model.</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>campaign</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Integer</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>number of contacts performed during this campaign and for this client (numeric, includes last contact)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>pdays</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Integer</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>number of days that passed by after the client was last contacted from a previous campaign (numeric; -1 means client was not previously contacted)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>yes</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>previous</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Integer</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>number of contacts performed before this campaign and for this client</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>poutcome</p></td>
+<td class="text-center"><p>Feature</p></td>
+<td class="text-center"><p>Categorical</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>outcome of the previous marketing campaign (categorical: ‘failure’,’nonexistent’,’success’)</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>yes</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>y</p></td>
+<td class="text-center"><p>Target</p></td>
+<td class="text-center"><p>Binary</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>has the client subscribed a term deposit?</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>no</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="analysis">
 <h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h2>
-<p>As our project is interested answering a classification problem, we decided to test different classification models to predict whether customers would subscribe to the term deposit. The models we chose to use are: the k-nearest neighbours (kNN), support vector machine (SVM), logistic regression, and random forest. We chose these models as they offer different benefits, and we were interested in finding out which model would work best for our data. We chose to include logistic regression as it offers both interpretability and potential to perform well in classification problems, while we chose the other models despite their lower interpretability as, in our case, it is not so critical that we understand why or how the model comes to its predictions as long as the model performs well. All variables from the original dataset except poutcome and contact were used to fit our models. 10% of the data was partitioned into the training set, and 90% of the data was partitioned into the test set, used for evaluating how well our best model would perform on unseen data. We used 5-fold cross-validation with the F-beta score (beta = 5) as the classification metric. Beta was chosen as 5 for the F-beta score as we would like to focus on making accurate predictions for the customers who might be interested in subscribing to the term deposit, corresponding to a higher recall. This is as because we would rather have false positives and annoy some customers who might not be interested in subscribing to our service, than miss out on customers who might want to subscribe to the service (false negatives), which would cause the bank to lose a potential opportunity. Furthermore, customers who fit this profile are more likely to subscribe to similar services, and if they are accurately identified, the bank will be able to target them more specifically in future campaigns. Numeric variables were standardised immediately before model testing and fitting, while categorical variables were encoded via one-hot encoding. The Python programming language <span id="id6">[<a class="reference internal" href="#id17" title="Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.">Van Rossum and Drake, 2009</a>]</span> was used to perform the analysis, with the following Python packages being used as well: <span id="id7">[<a class="reference internal" href="#id25" title="Charles R Harris, K Jarrod Millman, Stéfan J van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E Oliphant. Array programming with NumPy. Nature, 585(7825):357–362, 2020. URL: https://doi.org/10.1038/s41586-020-2649-2, doi:10.1038/s41586-020-2649-2.">Harris <em>et al.</em>, 2020</a>]</span>, <span id="id8">[<a class="reference internal" href="#id18" title="Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, =51 - 56. 2010.">McKinney, 2010</a>]</span>, <span id="id9">[<a class="reference internal" href="#id26" title="Jake VanderPlas. Altair: interactive statistical visualizations for python. Journal of open source software, 3(7825):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.">VanderPlas, 2018</a>]</span>, <span id="id10">[<a class="reference internal" href="#id27" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>, <span id="id11">[<a class="reference internal" href="#id16" title="J. D. Hunter. Matplotlib: a 2d graphics environment. Computing in Science &amp; Engineering, 9(3):90–95, 2007.">Hunter, 2007</a>]</span>. The code used to perform the analysis and create this report can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/Group_7_Project">UBC-MDS/Group_7_Project</a>.</p>
+<p>As our project is interested answering a classification problem, we decided to test different classification models to predict whether customers would subscribe to the term deposit.</p>
+<section id="model-selection">
+<h3>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this heading">#</a></h3>
+<p>The models we chose to use are: the k-nearest neighbours (kNN), support vector machine (SVM), logistic regression, and random forest. We chose these models as they offer different benefits, and we were interested in finding out which model would work best for our data. We chose to include logistic regression as it offers both interpretability and potential to perform well in classification problems, while we chose the other models despite their lower interpretability as, in our case, it is not so critical that we understand why or how the model comes to its predictions as long as the model performs well.</p>
+</section>
+<section id="feature-and-data-selection">
+<h3>Feature and Data Selection<a class="headerlink" href="#feature-and-data-selection" title="Permalink to this heading">#</a></h3>
+<p>All variables from the original dataset except poutcome and contact were used to fit our models. 10% of the data was partitioned into the training set, and 90% of the data was partitioned into the test set, used for evaluating how well our best model would perform on unseen data.</p>
 <p>Note: Because Docker containers have resource limits for CPU, memory, and I/O. In order to speed up the running of complex models (such as SVM, Random Forest), we decided to reduce the proportion of the training set to 10%. This is acceptable because our dataset is large enough that a 10% split still has 4500+ entries. Ideally, the code should execute within five minutes, depending on your computer configuration.</p>
+</section>
+<section id="metric-selection">
+<h3>Metric Selection<a class="headerlink" href="#metric-selection" title="Permalink to this heading">#</a></h3>
+<p>We used 5-fold cross-validation with the F-beta score (beta = 5) as the classification metric. Beta was chosen as 5 for the F-beta score as we would like to focus on making accurate predictions for the customers who might be interested in subscribing to the term deposit, corresponding to a higher recall. This is as because we would rather have false positives and annoy some customers who might not be interested in subscribing to our service, than miss out on customers who might want to subscribe to the service (false negatives), which would cause the bank to lose a potential opportunity. Furthermore, customers who fit this profile are more likely to subscribe to similar services, and if they are accurately identified, the bank will be able to target them more specifically in future campaigns.</p>
+</section>
+<section id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h3>
+<p>Numeric variables were standardised immediately before model testing and fitting, while categorical variables were encoded via one-hot encoding. Numeric variables were standardised so that distance-based machine learning algorithms like kNN could be used, and also to improve the interpretability of the results and coefficients of regression models. One-hot encoding was used to encode categorical variables as there were a fixed number of categories for each variable, making the variables very amenable to one-hot encoding. This allowed us to capture the information in the variables in a simple and machine-readable way, without adding too many uninformative features which would complicate our models and make them computationally expensive to run.</p>
+<p>The Python programming language <span id="id6">[<a class="reference internal" href="#id17" title="Guido Van Rossum and Fred L. Drake. Python 3 Reference Manual. CreateSpace, Scotts Valley, CA, 2009. ISBN 1441412697.">Van Rossum and Drake, 2009</a>]</span> was used to perform the analysis, with the following Python packages being used as well: <span id="id7">[<a class="reference internal" href="#id25" title="Charles R Harris, K Jarrod Millman, Stéfan J van der Walt, Ralf Gommers, Pauli Virtanen, David Cournapeau, Eric Wieser, Julian Taylor, Sebastian Berg, Nathaniel J Smith, Robert Kern, Matti Picus, Stephan Hoyer, Marten H van Kerkwijk, Matthew Brett, Allan Haldane, Jaime Fernández del Río, Mark Wiebe, Pearu Peterson, Pierre Gérard-Marchant, Kevin Sheppard, Tyler Reddy, Warren Weckesser, Hameer Abbasi, Christoph Gohlke, and Travis E Oliphant. Array programming with NumPy. Nature, 585(7825):357–362, 2020. URL: https://doi.org/10.1038/s41586-020-2649-2, doi:10.1038/s41586-020-2649-2.">Harris <em>et al.</em>, 2020</a>]</span>, <span id="id8">[<a class="reference internal" href="#id18" title="Wes McKinney. Data structures for statistical computing in python. In Stéfan van der Walt and Jarrod Millman, editors, Proceedings of the 9th Python in Science Conference, =51 - 56. 2010.">McKinney, 2010</a>]</span>, <span id="id9">[<a class="reference internal" href="#id26" title="Jake VanderPlas. Altair: interactive statistical visualizations for python. Journal of open source software, 3(7825):1057, 2018. URL: https://doi.org/10.21105/joss.01057, doi:10.21105/joss.01057.">VanderPlas, 2018</a>]</span>, <span id="id10">[<a class="reference internal" href="#id27" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>, <span id="id11">[<a class="reference internal" href="#id16" title="J. D. Hunter. Matplotlib: a 2d graphics environment. Computing in Science &amp; Engineering, 9(3):90–95, 2007.">Hunter, 2007</a>]</span>. The code used to perform the analysis and create this report can be found here: <a class="github reference external" href="https://github.com/UBC-MDS/Group_7_Project">UBC-MDS/Group_7_Project</a>.</p>
+</section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="results-discussion">
@@ -378,7 +560,7 @@ document.write(`
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Comparison of the empirical distributions of target values.</span><a class="headerlink" href="#class-imbalance" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>We did hyperparameter optimisation for the following classification models: k-nearest neighbouts classifier (<a class="reference internal" href="#knn"><span class="std std-numref">Figure 3</span></a>), support vector machine (<a class="reference internal" href="#svc"><span class="std std-numref">Figure 4</span></a>), logistic regression (<a class="reference internal" href="#lr"><span class="std std-numref">Figure 5</span></a>), and random forest model (<a class="reference internal" href="#rf"><span class="std std-numref">Figure 6</span></a>). To find the best model, we performed 5-fold cross validation within GridSearch using F-beta score (beta = 5) as our metric of model prediction performance.</p>
+<p>We did hyperparameter optimisation for the following classification models: k-nearest neighbours classifier (<a class="reference internal" href="#knn"><span class="std std-numref">Figure 3</span></a>), support vector machine (<a class="reference internal" href="#svc"><span class="std std-numref">Figure 4</span></a>), logistic regression (<a class="reference internal" href="#lr"><span class="std std-numref">Figure 5</span></a>), and random forest model (<a class="reference internal" href="#rf"><span class="std std-numref">Figure 6</span></a>). To find the best model, we performed 5-fold cross validation within GridSearch using F-beta score (beta = 5) as our metric of model prediction performance.</p>
 <figure class="align-default" id="knn">
 <a class="reference internal image-reference" href="_images/knn.png"><img alt="_images/knn.png" src="_images/knn.png" style="width: 600px;" /></a>
 <figcaption>
@@ -403,38 +585,38 @@ document.write(`
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Results from 5-fold cross validation of random forest model to choose max_features and max_depth. F-beta score (with beta = 5) was used as the classification metric as max_features and max_depth were varied.</span><a class="headerlink" href="#rf" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.826</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
+<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.804</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
 <figure class="align-default" id="model-comparison-df">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_44742">
+<table id="T_aeceb">
   <thead>
     <tr>
-      <th id="T_44742_level0_col0" class="col_heading level0 col0" >model_name</th>
-      <th id="T_44742_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
-      <th id="T_44742_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
+      <th id="T_aeceb_level0_col0" class="col_heading level0 col0" >model_name</th>
+      <th id="T_aeceb_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
+      <th id="T_aeceb_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_44742_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
-      <td id="T_44742_row0_col1" class="data row0 col1" >0.418000</td>
-      <td id="T_44742_row0_col2" class="data row0 col2" >0.289000</td>
+      <td id="T_aeceb_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
+      <td id="T_aeceb_row0_col1" class="data row0 col1" >0.492000</td>
+      <td id="T_aeceb_row0_col2" class="data row0 col2" >0.253000</td>
     </tr>
     <tr>
-      <td id="T_44742_row1_col0" class="data row1 col0" >SVC RBF</td>
-      <td id="T_44742_row1_col1" class="data row1 col1" >0.813000</td>
-      <td id="T_44742_row1_col2" class="data row1 col2" >0.796000</td>
+      <td id="T_aeceb_row1_col0" class="data row1 col0" >SVC RBF</td>
+      <td id="T_aeceb_row1_col1" class="data row1 col1" >0.785000</td>
+      <td id="T_aeceb_row1_col2" class="data row1 col2" >0.779000</td>
     </tr>
     <tr>
-      <td id="T_44742_row2_col0" class="data row2 col0" >Logistic Regression</td>
-      <td id="T_44742_row2_col1" class="data row2 col1" >0.804000</td>
-      <td id="T_44742_row2_col2" class="data row2 col2" >0.793000</td>
+      <td id="T_aeceb_row2_col0" class="data row2 col0" >Logistic Regression</td>
+      <td id="T_aeceb_row2_col1" class="data row2 col1" >0.778000</td>
+      <td id="T_aeceb_row2_col2" class="data row2 col2" >0.774000</td>
     </tr>
     <tr>
-      <td id="T_44742_row3_col0" class="data row3 col0" >Random Forest</td>
-      <td id="T_44742_row3_col1" class="data row3 col1" >0.852000</td>
-      <td id="T_44742_row3_col2" class="data row3 col2" >0.826000</td>
+      <td id="T_aeceb_row3_col0" class="data row3 col0" >Random Forest</td>
+      <td id="T_aeceb_row3_col1" class="data row3 col1" >0.825000</td>
+      <td id="T_aeceb_row3_col2" class="data row3 col2" >0.804000</td>
     </tr>
   </tbody>
 </table>
@@ -442,21 +624,21 @@ document.write(`
 <p><span class="caption-number">Fig. 7 </span><span class="caption-text">Performance comparison across all models.</span><a class="headerlink" href="#model-comparison-df" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.82</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.826</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">12129</span> false positives and <span class="pasted-text">4073</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
+<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.807</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.804</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">11995</span> false positives and <span class="pasted-text">4005</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
 <figure class="align-default" id="test-scores-df">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_1dc0c">
+<table id="T_5abe3">
   <thead>
     <tr>
-      <th id="T_1dc0c_level0_col0" class="col_heading level0 col0" >accuracy</th>
-      <th id="T_1dc0c_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
+      <th id="T_5abe3_level0_col0" class="col_heading level0 col0" >accuracy</th>
+      <th id="T_5abe3_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_1dc0c_row0_col0" class="data row0 col0" >0.677000</td>
-      <td id="T_1dc0c_row0_col1" class="data row0 col1" >0.820000</td>
+      <td id="T_5abe3_row0_col0" class="data row0 col0" >0.678000</td>
+      <td id="T_5abe3_row0_col1" class="data row0 col1" >0.807000</td>
     </tr>
   </tbody>
 </table>
@@ -495,13 +677,13 @@ document.write(`
   <tbody>
     <tr>
       <th>no</th>
-      <td>22226</td>
-      <td>12129</td>
+      <td>22360</td>
+      <td>11995</td>
     </tr>
     <tr>
       <th>yes</th>
-      <td>446</td>
-      <td>4073</td>
+      <td>514</td>
+      <td>4005</td>
     </tr>
   </tbody>
 </table>
@@ -509,8 +691,23 @@ document.write(`
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text">Confusion matrix of model performance on test data.</span><a class="headerlink" href="#confusion-df" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>As the F-beta score (beta = 5) score of the model is quite high and the model does not seem to be overfit to the training data, it is probably safe to apply this model to new customers, and to predict whether they will be interested in subscribing to the term deposit. This means that the bank can target ads and direct marketing calls about this term deposit, and potentially, other related products, to this specific group of customers, and can expect that the success rate would be quite high compared to a random group of customers.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h1>
+<p>Overall, given the context of our problem, we think the final random forest model can be used by the Portugese banking institution to predict customer responses to the digital marketing campaign. As the F-beta score (beta = 5) score of the model is quite high and the model does not seem to be overfit to the training data, it is probably safe to apply this model to new customers, and to predict whether they will be interested in subscribing to the term deposit. While the number of false positives might be higher than ideal, given the context of our problem, this poses limited risk to the institution and does not compromise the applicability of the model to the problem. This means that the bank can target ads and direct marketing calls about this term deposit, and potentially, other related products, to this specific group of customers, and can expect that the success rate would be quite high compared to a random group of customers.</p>
 <p>While the high number of false positives is acceptable given the low-stakes nature of having false positives, it would still be beneficial to the bank to improve the performance of our model, and to reduce the number of false positives. In the future, the model may be refined by including more data points, which might help to train the model better. More relevant features may also be included to train the model better, and feature engineering may be carried out to further refine the model.</p>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h2>
+<section id="small-training-set">
+<h3>Small Training Set<a class="headerlink" href="#small-training-set" title="Permalink to this heading">#</a></h3>
+<p>Due to computational constraints, we employed just 10% of our dataset in the training phase. This is as due to the small training size, our models might not have been as robustly trained as it could have been. While this was done due to computational constraints with the Docker container environment, in further analyses, it would be ideal if a container or virtual machine with more computational power could be used so that we can train the models on the full dataset instead. This would allow us to be more confident that the models were trained robustly and that it was not underfit to the real trends in the dataset.</p>
+</section>
+<section id="model-accuracy-and-feature-engineering">
+<h3>Model Accuracy and Feature Engineering<a class="headerlink" href="#model-accuracy-and-feature-engineering" title="Permalink to this heading">#</a></h3>
+<p>Our best model (Random Forest) tests with an accuracy of 67% which can be further improved. This accuracy of 67% is still not very high meaning that our model still cannot really explain a lot of variation in the data. We propose some solutions to improve model accuracy in future studies.</p>
+<p>The prevailing issue of class imbalance results in a large number of false positives that undermine the reliability of our predictions. While, as explained above, this is acceptable within the scope of our project and research question, it would still be ideal to reduce the number of false positives while increasing the number of true predictions. To solve this in future analyses, we might need to use some more advanced preprocessing techniques or re-organize our data to handle the imbalance issue and refine the model’s precision. Furthermore, we could also add some feature engineering and feature selection; both leading to an enhanced performance of our model. Addressing this gap is crucial to uncover latent patterns and optimize the model’s learning capabilities.</p>
+</section>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="references">
 <h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
@@ -597,10 +794,24 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#methods">Methods</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-and-data-selection">Feature and Data Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-selection">Metric Selection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#results-discussion">Results &amp; Discussion</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations">Limitations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-training-set">Small Training Set</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-and-feature-engineering">Model Accuracy and Feature Engineering</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
 

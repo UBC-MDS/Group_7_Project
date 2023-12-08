@@ -1,4 +1,4 @@
 ,2
-param_logisticregression__C,0.01
-mean_test_score,0.7928805695151341
-mean_train_score,0.8039440108328391
+param_logisticregression__C,1.0
+mean_test_score,0.7743530920224765
+mean_train_score,0.7783235318128688
