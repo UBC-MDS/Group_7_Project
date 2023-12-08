@@ -1,5 +1,5 @@
 ,2
 param_randomforestclassifier__max_depth,3
-param_randomforestclassifier__n_estimators,500
-mean_test_score,0.8263343272477064
-mean_train_score,0.8518721619805296
+param_randomforestclassifier__n_estimators,400
+mean_test_score,0.8040302690822532
+mean_train_score,0.8245768131626037
