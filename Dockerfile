@@ -1,6 +1,8 @@
 # Author : Gretel Tan, Riya Eliza, Charles Xu, Yan Zeng
 FROM quay.io/jupyter/minimal-notebook:2023-11-19 
 
+RUN apt-get update && apt-get install -y make
+
 # Did not pin Python version due to conflict
 RUN conda install -y matplotlib=3.8.0 \
 pandas=2.1.1 \
