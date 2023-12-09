@@ -9,7 +9,7 @@ RUN conda install -y matplotlib=3.8.0 \
 pandas=2.1.1 \
 scikit-learn=1.3.1 \
 bzip2=1.0.8 \
-ca-certificates=2023.7.22 \
+ca-certificates=2023.11.17 \
 libexpat=2.5.0 \
 libffi=3.4.2 \
 libsqlite=3.44.0 \
@@ -26,7 +26,7 @@ xz=5.2.6 \
 click=8.1.7  \
 jupyter-book=0.15.1 \
 importlib-metadata=4.13.0 \
-make
+make=4.3
 
 RUN pip install ucimlrepo==0.0.3 \
 altair==5.1.2 \
