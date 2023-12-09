@@ -72,6 +72,8 @@ enter the following command in the terminal in the project root:
 docker-compose run --rm main /bin/bash -c "cd work/ && make all"
 ```
 
+3. Our final rendered report html file should be located at `/docs/bank_marketing_prediction.html`.
+
 #### Alternative way to running the analysis
 
 1.  Using the command line, change your directory into the root of this project's directory (using the cd command). Run the following command in that directory:
