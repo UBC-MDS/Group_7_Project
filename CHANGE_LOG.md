@@ -1,6 +1,6 @@
 1. Added MIT license : https://github.com/UBC-MDS/Group_7_Project/blob/master/LICENSE.md
 2. Rearranged file stucture (moved all script and previously used documents to docs folder) https://github.com/UBC-MDS/Group_7_Project/tree/bee48b8526765723cac9e2fc9ccced8ed3de6b5c/docs 
-3. README.md edits : Removed "$" from all commands and added Makefile instructions https://github.com/UBC-MDS/Group_7_Project.git
+3. README.md edits : Removed "$" from all commands and added Makefile instructions https://github.com/UBC-MDS/Group_7_Project/blob/master/README.md
 4. Report edits: https://github.com/UBC-MDS/Group_7_Project/blob/bee48b8526765723cac9e2fc9ccced8ed3de6b5c/report/bank_marketing_prediction.ipynb 
   - Edited Analysis section for clearer organisation
   - Added explanation for preprocessing
