@@ -1,6 +1,7 @@
 # Author : Gretel Tan, Riya Eliza, Charles Xu, Yan Zeng
 FROM quay.io/jupyter/minimal-notebook:2023-11-19 
 
+USER root
 RUN apt-get update && apt-get install -y make
 
 # Did not pin Python version due to conflict
