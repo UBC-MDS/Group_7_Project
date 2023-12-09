@@ -345,8 +345,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="predictive-analytics-for-direct-marketing-campaign-a-banking-case-study">
 <h1>Predictive Analytics for Direct Marketing Campaign: A Banking Case Study<a class="headerlink" href="#predictive-analytics-for-direct-marketing-campaign-a-banking-case-study" title="Permalink to this heading">#</a></h1>
-<p>by Gretel Tan, Yan Zeng, Charles Xu &amp; Riya E. Shaju 2023/12/05</p>
+<p>by Gretel Tan, Yan Zeng, Charles Xu &amp; Riya E. Shaju 2023/12/09</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;jemalloc&gt;: MADV_DONTNEED does not work (memset will be used instead)
+&lt;jemalloc&gt;: (This is the expected behaviour if you are running under QEMU)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_remove-input docutils container">
 </div>
@@ -357,7 +363,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
-<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.807</span>, and an accuracy of <span class="pasted-text">0.678</span> on the test data.</p>
+<p>In this project, we aimed to use customer information from a phone-call based direct marketing campaign of a Portugese banking institution to predict whether customers would subscribe to the product offered, a term deposit. We applied several classification based models (k-NN, SVM, logistic regression and random forest) to our dataset to find the model which best fit our data, eventually settling on the random forest model, which performed the best among all the models tested, with an F-beta score with beta = 5 of <span class="pasted-text">0.82</span>, and an accuracy of <span class="pasted-text">0.675</span> on the test data.</p>
 <p>While this was the best performing model out of the models tested, its accuracy still left much to be desired. This indicates that perhaps more data is needed to accurately predict whether customers would subscribe to the term deposit. Future studies may also consider using more features, a different set of features which might be more relevant to whether customers will subscribe, or utilising feature engineering to obtain features which might be more useful in helping to predict whether customers would subscribe to the service.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction">
@@ -585,38 +591,38 @@ document.write(`
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Results from 5-fold cross validation of random forest model to choose max_features and max_depth. F-beta score (with beta = 5) was used as the classification metric as max_features and max_depth were varied.</span><a class="headerlink" href="#rf" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.804</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
+<p>Out of the above models, the random forest model performed the best, with its best, hyperparameter-optimised model having a mean test score of <span class="pasted-text">0.826</span>, which was the highest mean test score for the optimised models. We thus decided to use the random forest model for our final predictions with the test data.</p>
 <figure class="align-default" id="model-comparison-df">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_aeceb">
+<table id="T_1dac8">
   <thead>
     <tr>
-      <th id="T_aeceb_level0_col0" class="col_heading level0 col0" >model_name</th>
-      <th id="T_aeceb_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
-      <th id="T_aeceb_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
+      <th id="T_1dac8_level0_col0" class="col_heading level0 col0" >model_name</th>
+      <th id="T_1dac8_level0_col1" class="col_heading level0 col1" >mean_train_score</th>
+      <th id="T_1dac8_level0_col2" class="col_heading level0 col2" >mean_test_score</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_aeceb_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
-      <td id="T_aeceb_row0_col1" class="data row0 col1" >0.492000</td>
-      <td id="T_aeceb_row0_col2" class="data row0 col2" >0.253000</td>
+      <td id="T_1dac8_row0_col0" class="data row0 col0" >K-Nearest Neighbors</td>
+      <td id="T_1dac8_row0_col1" class="data row0 col1" >0.508000</td>
+      <td id="T_1dac8_row0_col2" class="data row0 col2" >0.239000</td>
     </tr>
     <tr>
-      <td id="T_aeceb_row1_col0" class="data row1 col0" >SVC RBF</td>
-      <td id="T_aeceb_row1_col1" class="data row1 col1" >0.785000</td>
-      <td id="T_aeceb_row1_col2" class="data row1 col2" >0.779000</td>
+      <td id="T_1dac8_row1_col0" class="data row1 col0" >SVC RBF</td>
+      <td id="T_1dac8_row1_col1" class="data row1 col1" >0.810000</td>
+      <td id="T_1dac8_row1_col2" class="data row1 col2" >0.790000</td>
     </tr>
     <tr>
-      <td id="T_aeceb_row2_col0" class="data row2 col0" >Logistic Regression</td>
-      <td id="T_aeceb_row2_col1" class="data row2 col1" >0.778000</td>
-      <td id="T_aeceb_row2_col2" class="data row2 col2" >0.774000</td>
+      <td id="T_1dac8_row2_col0" class="data row2 col0" >Logistic Regression</td>
+      <td id="T_1dac8_row2_col1" class="data row2 col1" >0.799000</td>
+      <td id="T_1dac8_row2_col2" class="data row2 col2" >0.784000</td>
     </tr>
     <tr>
-      <td id="T_aeceb_row3_col0" class="data row3 col0" >Random Forest</td>
-      <td id="T_aeceb_row3_col1" class="data row3 col1" >0.825000</td>
-      <td id="T_aeceb_row3_col2" class="data row3 col2" >0.804000</td>
+      <td id="T_1dac8_row3_col0" class="data row3 col0" >Random Forest</td>
+      <td id="T_1dac8_row3_col1" class="data row3 col1" >0.843000</td>
+      <td id="T_1dac8_row3_col2" class="data row3 col2" >0.826000</td>
     </tr>
   </tbody>
 </table>
@@ -624,21 +630,21 @@ document.write(`
 <p><span class="caption-number">Fig. 7 </span><span class="caption-text">Performance comparison across all models.</span><a class="headerlink" href="#model-comparison-df" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.807</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.804</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">11995</span> false positives and <span class="pasted-text">4005</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
+<p>The random forest model performed similarly on the test data when compared to the training data, having an F-beta score (beta = 5) of <span class="pasted-text">0.82</span> on the test data. This was only slightly lower than the mean test score of the best model after cross validation using the training data, which was <span class="pasted-text">0.826</span>. This relatively high F-beta score and the small gap between the scores indicates that the model is quite good at predicting whether customers will subscribe to the term deposit, and is likely to generalise well to unseen data. It had quite a low accuracy, with <span class="pasted-text">12184</span> false positives and <span class="pasted-text">4075</span> actual positives. This is expected as we heavily favoured recall, and acceptable as the high number of false positives is not of large consequence to the bank.</p>
 <figure class="align-default" id="test-scores-df">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_5abe3">
+<table id="T_4d949">
   <thead>
     <tr>
-      <th id="T_5abe3_level0_col0" class="col_heading level0 col0" >accuracy</th>
-      <th id="T_5abe3_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
+      <th id="T_4d949_level0_col0" class="col_heading level0 col0" >accuracy</th>
+      <th id="T_4d949_level0_col1" class="col_heading level0 col1" >F-beta score (beta = 5)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_5abe3_row0_col0" class="data row0 col0" >0.678000</td>
-      <td id="T_5abe3_row0_col1" class="data row0 col1" >0.807000</td>
+      <td id="T_4d949_row0_col0" class="data row0 col0" >0.675000</td>
+      <td id="T_4d949_row0_col1" class="data row0 col1" >0.820000</td>
     </tr>
   </tbody>
 </table>
@@ -677,13 +683,13 @@ document.write(`
   <tbody>
     <tr>
       <th>no</th>
-      <td>22360</td>
-      <td>11995</td>
+      <td>22171</td>
+      <td>12184</td>
     </tr>
     <tr>
       <th>yes</th>
-      <td>514</td>
-      <td>4005</td>
+      <td>444</td>
+      <td>4075</td>
     </tr>
   </tbody>
 </table>
@@ -704,7 +710,7 @@ document.write(`
 </section>
 <section id="model-accuracy-and-feature-engineering">
 <h3>Model Accuracy and Feature Engineering<a class="headerlink" href="#model-accuracy-and-feature-engineering" title="Permalink to this heading">#</a></h3>
-<p>Our best model (Random Forest) tests with an accuracy of 67% which can be further improved. This accuracy of 67% is still not very high meaning that our model still cannot really explain a lot of variation in the data. We propose some solutions to improve model accuracy in future studies.</p>
+<p>Our best model (Random Forest) tests with an accuracy of <span class="pasted-text">0.675</span> which can be further improved. This accuracy of <span class="pasted-text">0.675</span> is still not very high meaning that our model still cannot really explain a lot of variation in the data. We propose some solutions to improve model accuracy in future studies.</p>
 <p>The prevailing issue of class imbalance results in a large number of false positives that undermine the reliability of our predictions. While, as explained above, this is acceptable within the scope of our project and research question, it would still be ideal to reduce the number of false positives while increasing the number of true predictions. To solve this in future analyses, we might need to use some more advanced preprocessing techniques or re-organize our data to handle the imbalance issue and refine the model’s precision. Furthermore, we could also add some feature engineering and feature selection; both leading to an enhanced performance of our model. Addressing this gap is crucial to uncover latent patterns and optimize the model’s learning capabilities.</p>
 </section>
 </section>
